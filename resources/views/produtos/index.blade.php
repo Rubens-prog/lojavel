@@ -28,7 +28,7 @@
             <td>{{$produto->preco}}</td>
             <td>{{$produto->descricao}}</td>
             <td><a href="/produtos/edita?id={{$produto->id}}" class="btn btn-secondary">edit</a></td> 
-            <td><a onclick="return confirm('Você tem certeza?')" href="/produtos/delete?id={{$produto->id}}" class="btn btn-danger">delete</a></td>
+            <td><a href="/produtos/delete?id={{$produto->id}}" onclick="return confirm('Você tem certeza?')" class="btn btn-danger">delete</a></td>
           </tr>
     @endforeach
     </tbody>

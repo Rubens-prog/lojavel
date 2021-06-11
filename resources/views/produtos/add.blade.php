@@ -6,7 +6,7 @@
 
 
 
-<form action="/salva-produto" method="post">
+<form action="/produtos/salva-produto" method="post">
     @csrf
     <div>
         
@@ -26,6 +26,17 @@
            <textarea  required class="form-control" name="descricao"></textarea>
         
     </div>
+
+    <div>
+    <label class="mt-4">Categorias:</label>
+       <select name="categoria" class="form-control">
+              <option>esporte</option>             
+              <option>musica</option>             
+              <option>mobilidade</option>             
+              <option>moda</option>             
+       </select>
+    </div>
+
     <div>
         
             
@@ -34,9 +45,10 @@
     </div>
     <div> 
         
-           <button class="btn btn-primary">Cadastrar</button>
+           <button type="submit" class="btn btn-primary">Cadastrar</button>
         
     </div>
+    
 
 </form>
 @stop

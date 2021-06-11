@@ -18,6 +18,7 @@ class CreateProdutosTable extends Migration
             $table->string('nome');
             $table->decimal('preco', 8,2)->default(0.00);
             $table->text('descricao');
+            $table->string('categoria');
             $table->boolean('usado')->default(0);
             $table->timestamps();
         });

@@ -25,8 +25,9 @@ Route::get('/', function () {
 
 
 //ROUTAS PARA PRODUTOS
+Route::get('/produtos/adicionar',[ControllerProdutos::class, 'formProduto']);
 Route::get('/produtos', [ControllerProdutos::class,'lista']);
-Route::get('/produtos/adicionar',[ControllerProdutos::class, 'adicionaProduto']);
 Route::post('/produtos/salva-produto',[ControllerProdutos::class, 'salvaProduto']);
-Route::get('/produtos/edita',[ControllerProdutos::class, 'editaProduto']);
+Route::get('/produtos/edita',[ControllerProdutos::class,'editaProduto']);
 Route::get('/produtos/delete',[ControllerProdutos::class, 'deleteProduto']);
+Route::post('/produtos-edita',[ControllerProdutos::class,'updateProduto']);
