@@ -14,27 +14,16 @@ function formProduto(Request $request){
     return view('produtos.add');
 }
 
+function lista(){
+    $lista= Produto::get();
+    return view('produtos.index')->with("produtos", $lista);//transforma variável $lista em $produtos 
+}
+
 function salvaProduto(Request $request){
-    $nome=$request->input("nome");
-    $preco=$request->input("preco");
-    $descricao=$request->input("descricao");
-    $usado=$request->input("usado");
-    
-    $produto= new Produto;
-    $produto->nome= $nome;
-    $produto->preco= $preco;
-    $produto->descricao= $descricao;
-    
-    
-    if( !empty($usado) ){
-        $produto->usado= $usado;
-    }
-    
-        
+    $data=$request->except(["_token"]);
+    $produto=Produto::create($data);
 
-
-    $produto->save();
-    return redirect("/produtos")->with("Done","Produto " . $nome .", ".  $preco . " adicionado com sucesso!");
+    return redirect("/produtos")->with("Done","Produto " . $produto->nome .", ".  $produto->preco . " adicionado com sucesso!");
     
 }
 
@@ -46,10 +35,7 @@ function editaProduto(Request $request){
     return view('produtos.edit')->with("produto",$produtos);
 }
 
-function lista(){
-    $lista= Produto::get();
-    return view('produtos.index')->with("produtos", $lista);//transforma variável $lista em $produtos 
-}
+
 function deleteProduto(Request $request){
     $id=$request->input("id");
     $produto=Produto::find($id);
@@ -59,28 +45,11 @@ function deleteProduto(Request $request){
 
 }
 function updateProduto(Request $request){
+    $data=$request->except(["_token"]);
     $id=$request->input('id');
-    $produto=Produto::find($id);
 
-    $nome= $request->input("nome");
-    $preco=$request->input("preco");
-    $descricao=$request->input("descricao");
-    
- 
+    $produto=Produto::where("id", $id)->update($data);
 
-    //$produto->nome($nome); NAO FAZ SENTIDO!
-    //$produto->preco($preco);
-    //$produto->descricao($descricao);
-    //$produto->usado($usado);
-
-    $produto->nome= $nome;
-    $produto->preco= $preco;
-    $produto->descricao= $descricao;
-    
-    
-    
-
-    $produto->save();
     return redirect("/produtos")->with("Done","Produto editado!");
    
 }

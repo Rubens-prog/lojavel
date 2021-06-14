@@ -2,6 +2,12 @@
 
 @section('main')
 
+<?php
+
+
+$categorias=\App\Models\Categoria::get();
+?>
+
 <h1 class="">Adiciona Produto</h1>
 
 
@@ -29,23 +35,26 @@
 
     <div>
     <label class="mt-4">Categorias:</label>
-       <select name="categoria" class="form-control">
-              <option>esporte</option>             
-              <option>musica</option>             
-              <option>mobilidade</option>             
-              <option>moda</option>             
+       <select name="categoria_id" class="form-control">
+              @foreach($categorias as $categoria)
+              <option value="{{$categoria->id}}">{{$categoria->nome}}</option>
+              @endforeach
        </select>
     </div>
 
-    <div>
-        
-            
-            <input class="mt-4 mb-4" type="checkbox" name="usado" value="1">Usado
-        
+   
+    <div class="mt-4 mb-4">
+    <label for="">Usado</label>
+       <select class="form-control col-2" name="usado">
+       <option value="1">SIM</option>
+       <option value="0">NÃO</option>
+       </select>        
     </div>
-    <div> 
+       <hr>
+    <div class="mb-5"> 
         
            <button type="submit" class="btn btn-primary">Cadastrar</button>
+           <a href="/produtos" class="btn btn-secondary">Voltar</a>
         
     </div>
     

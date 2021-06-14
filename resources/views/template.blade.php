@@ -29,11 +29,12 @@
     <a href="/"><img src="/img/logo.png" width="200"></a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active pl-5">
-        <a class="nav-link" href="/produtos/adicionar">Adicionar Produto </a>
-      </li>
+     
       <li class="nav-item active pl-5">
         <a class="nav-link" href="/produtos">Lista de Produtos</a>
+      </li>
+      <li class="nav-item active pl-5">
+        <a class="nav-link" href="/categorias">Categoria de Produtos</a>
       </li>
     </ul>
   </div>

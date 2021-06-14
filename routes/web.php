@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\ControllerProdutos;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-
-
-//ROUTAS PARA PRODUTOS
-Route::get('/produtos/adicionar',[ControllerProdutos::class, 'formProduto']);
-Route::get('/produtos', [ControllerProdutos::class,'lista']);
-Route::post('/produtos/salva-produto',[ControllerProdutos::class, 'salvaProduto']);
-Route::get('/produtos/edita',[ControllerProdutos::class,'editaProduto']);
-Route::get('/produtos/delete',[ControllerProdutos::class, 'deleteProduto']);
-Route::post('/produtos-edita',[ControllerProdutos::class,'updateProduto']);
+require __DIR__.'/auth.php';

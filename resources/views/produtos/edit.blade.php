@@ -4,6 +4,13 @@
 
 <h1>Altera Produto</h1>
 
+<?php
+
+$categorias=\App\Models\Categoria::get();
+?>
+
+
+
 @if(session('Done'))
     <div class="alert alert-success">
         {{ session('Done') }}
@@ -30,14 +37,26 @@
            <textarea  required class="form-control" name="descricao">{{$produto->descricao}}</textarea>
         
     </div>
-   
+
     <div>
-        
-            
-            <input class="mt-4 mb-4" type="checkbox" name="usado" checked="@if($produto->usado= 'true')'{{'checked'}}@else{{'false'}}  @endif">Usado
-        
+    <label class="mt-4">Categorias:</label>
+       <select name="categoria_id" class="form-control">
+              @foreach($categorias as $categoria)
+              <option value="{{$categoria->id}}" @if($produto->categoria_id==$categoria->id)selected="selected" @endif >{{$categoria->nome}}</option>
+              @endforeach
+       </select>
     </div>
-    <div> 
+
+   
+    <div class="mt-4 mb-4">
+    <label for="">Usado</label>
+       <select class="form-control col-2" name="usado">
+       <option @if($produto->usado == 1) selected="selected" @endif value="1">SIM</option>
+       <option @if($produto->usado == 0) selected="selected" @endif value="0">NÃO</option>
+       </select>        
+    </div>
+
+    <div class="mb-5"> 
         
            <button type="submit" class="btn btn-primary">editar</button>
     </div>
