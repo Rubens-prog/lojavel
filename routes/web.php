@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\ControllerProdutos;
+use App\Http\Controllers\ControllerCategorias;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +22,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+
+
+//ROUTAS PARA PRODUTOS
+Route::get('/produtos/adicionar',[ControllerProdutos::class, 'formProduto']);
+Route::get('/produtos', [ControllerProdutos::class,'lista']);
+Route::post('/produtos/salva-produto',[ControllerProdutos::class, 'salvaProduto']);
+Route::get('/produtos/edita',[ControllerProdutos::class,'editaProduto']);
+Route::post('/produtos-edita',[ControllerProdutos::class,'updateProduto']);
+Route::get('/produtos/delete',[ControllerProdutos::class, 'deleteProduto']);
+
+//ROTAS CATEGORIAS
+Route::get('/categorias',[ControllerCategorias::class,'index']);
+Route::get('/categorias/novo/', function(){
+    return view('categorias.novo');
+ });
+Route::post('/categorias/salvar',[ControllerCategorias::class,'salvar']);
+Route::get('categorias/delete',[ControllerCategorias::class,'delete']);
+Route::get('/categorias/edit/{id}',[ControllerCategorias::class,'edit']);
+Route::post('/categorias/update/{id}',[ControllerCategorias::class,'update']);
