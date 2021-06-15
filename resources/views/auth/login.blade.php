@@ -1,9 +1,18 @@
 <x-guest-layout>
     <x-auth-card>
+    <style>
+    h1{
+
+        font-size:80px;
+        color:red;
+
+    }
+
+</style>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+                <h1  class=" ">Lojavel!</h1>
+           </a>
         </x-slot>
 
         <!-- Session Status -->

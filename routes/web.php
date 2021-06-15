@@ -24,6 +24,8 @@ Route::get('/', function () {
 
 
 
+Route::middleware(['auth'])->group(function () {
+
 
 //ROUTAS PARA PRODUTOS
 Route::get('/produtos/adicionar',[ControllerProdutos::class, 'formProduto']);
@@ -42,3 +44,17 @@ Route::post('/categorias/salvar',[ControllerCategorias::class,'salvar']);
 Route::get('categorias/delete',[ControllerCategorias::class,'delete']);
 Route::get('/categorias/edit/{id}',[ControllerCategorias::class,'edit']);
 Route::post('/categorias/update/{id}',[ControllerCategorias::class,'update']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
+});
+
+require __DIR__.'/auth.php';
+
+//Rotas "sobre"
+Route::get('/sobre', function () {
+    return view('sobre.about');
+});

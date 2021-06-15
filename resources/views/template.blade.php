@@ -8,12 +8,17 @@
 </head>
 <body>
 
+<form id="form-logout" method="POST" action="{{ route('logout') }}">
+    @csrf
+</form>
+
 <style>
 
   h1{
 
     padding-top:50px;
     text-align:center;
+   
   }
 
   nav{
@@ -22,6 +27,9 @@
     
   }
 
+  
+  
+  
 </style>
     
 <nav class="navbar navbar-expand-lg  bg-dark navbar-dark">
@@ -36,19 +44,45 @@
       <li class="nav-item active pl-5">
         <a class="nav-link" href="/categorias">Categoria de Produtos</a>
       </li>
+      <li class="nav-item active pl-5">
+        <a class="nav-link" href="/sobre">Sobre</a>
+      </li>
     </ul>
   </div>
   </div>
+  <div>
+
+  <ul class="navbar-nav">
+      <li class="nav-item active pl-5">
+          <a class="nav-link " aria-current="page" href="/register">registrar-se</a>
+      </li> 
+
+        <li class="nav-item active pl-5">
+        <a class=" nav-link" onclick="logout()" aria-current="page" href="#">
+                Sair
+        </a>
+        </li> 
+  </ul>
+
+  </div>
+
 </nav>
 
 <div style="min-height: 600px;" class="container">
             @yield('main')       
         </div>
 
-<footer style="min-height:100px" class="blog-footer text-center bg-dark text-light p-2">
+<footer style="min-height:100px" class="blog-footer text-center bg-dark text-light p-5">
 
+    <a class="text-light" href="#" >Back to top</a>
 
 </footer> 
+
+<script type="text/javascript">
+    function logout(){
+        document.getElementById('form-logout').submit();
+    }
+</script>
 
 </body>
 </html>
