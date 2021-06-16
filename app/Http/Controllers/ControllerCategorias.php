@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class ControllerCategorias extends Controller
 {
 function index(){
-    $categorias=Categoria::get();
+    $categorias=Categoria::simplePaginate(5);
     return view('categorias.index')->with('categorias', $categorias);
+    
 }
+
 
 public function salvar(Request $request){
     $data=$request->except(["_token"]);

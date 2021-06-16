@@ -35,4 +35,10 @@
 @endforeach
     </tbody>
 </table>
+<hr>
+    <div >
+        <div class="mt-4 d-flex justify-content-center ">
+        {{$categorias->links()}}
+        </div>
+    </div>
 @stop
