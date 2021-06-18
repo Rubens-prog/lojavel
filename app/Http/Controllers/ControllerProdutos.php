@@ -43,7 +43,7 @@ function lista(Request $request){
 
 
     
-    $lista= $query->paginate(10);
+    $lista= $query->paginate(5);
     return view('produtos.index')->with("produtos", $lista);//transforma variável $lista em $produtos 
 }
 

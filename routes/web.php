@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ControllerProdutos;
 use App\Http\Controllers\ControllerCategorias;
+use App\Http\Controllers\ControllerUsers;
 
 
 
@@ -44,6 +45,18 @@ Route::post('/categorias/salvar',[ControllerCategorias::class,'salvar']);
 Route::get('categorias/delete',[ControllerCategorias::class,'delete']);
 Route::get('/categorias/edit/{id}',[ControllerCategorias::class,'edit']);
 Route::post('/categorias/update/{id}',[ControllerCategorias::class,'update']);
+
+//ROTAS USUÁRIOS
+
+Route::get('/usuarios',[ControllerUsers::class,'users']);
+Route::get('/usuarios/form',[ControllerUsers::class,'formUser']);
+Route::post('/usuarios/salvar',[ControllerUsers::class,'saveUser']);
+Route::get('usuarios/delete/',[ControllerUsers::class,'destroy']);
+Route::get('/usuarios/edit/',[ControllerUsers::class,'edit']);
+Route::post('/usuarios/update',[ControllerUsers::class,'updateUsers']);
+   
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
