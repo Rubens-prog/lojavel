@@ -70,7 +70,13 @@ $categorias=\App\Models\Categoria::get();
             <td>{{$produto->nome}}</td>
             <td>{{$produto->preco}}</td>
             <td>{{$produto->descricao}}</td>
-            <td>{{$produto->categoria->nome}}</td>
+            <td>
+            @if( $produto->categoria!==null )
+                {{$produto->categoria->nome}}
+            @else
+                Sem categoria
+            @endif
+            </td>
             <td>
                 @if($produto->usado == 1)
                    SIM

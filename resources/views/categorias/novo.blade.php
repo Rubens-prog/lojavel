@@ -17,6 +17,12 @@
                 <input class="form-control" autocomplete="off" type="text" name="nome" required>  
             </label>
         </div>
+        <div class="form-group">
+            <label class="ls-label">
+            <span class="ls-label-text">Imagem</span>
+                <input placeholder="link imagem" class="form-control" autocomplete="off" type="text" name="img" required>  
+            </label>
+        </div>
          <button type="submit" class="btn btn-danger"> Cadastrar</button>
     </div>
 

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ControllerCategorias extends Controller
 {
 function index(){
-    $categorias=Categoria::simplePaginate(5);
+    $categorias=Categoria::simplePaginate(6);
     return view('categorias.index')->with('categorias', $categorias);
     
 }

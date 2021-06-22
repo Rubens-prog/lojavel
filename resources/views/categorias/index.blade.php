@@ -12,33 +12,27 @@
 
 <a href="/categorias/novo/" class="btn btn-primary"><i class="fas fa-plus mr-1"></i>Cadastrar novo</a>
 
-
-<table class="table mt-5 table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th class="text-center">id</th>
-            <th class="text-center">nome</th>  
-            <th class="text-center">ações</th>             
-        </tr>
-    </thead>
-    <tbody>
-   
-   @foreach($categorias as $categoria)
-          <tr>    
-            <td class="text-center">{{$categoria->id}}</td>
-            <td class="text-center">{{$categoria->nome}}</td>
-            <td class="text-center">
+<div class="row">
+@foreach($categorias as $categoria)
+  <div class="col-md-4">
+    <div style="width:80%;">
+        <div class="card mt-5 mb-5" >
+        <img  src="{{$categoria->img}}" class="card-img-top" >
+        <div class="card-body" >
+            <h5 class="card-title">{{$categoria->nome}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="/produtos?categoria_id={{$categoria->id}}" class="btn btn-primary">Visualizar</a>
             <a href="/categorias/edit/{{$categoria->id}}" class="btn btn-secondary"><i class="fas fa-pen ml-2 mr-2"></i></a>
             <a href="/categorias/delete?id={{$categoria->id}}" onclick="return confirm('Você tem certeza?')" class="btn btn-danger"><i class="far fa-trash-alt ml-2 mr-2"></i></a>
-            </td>       
-          </tr>
-@endforeach
-    </tbody>
-</table>
-<hr>
-    <div >
-        <div class="mt-4 d-flex justify-content-center ">
-        {{$categorias->links()}}
+        </div>
         </div>
     </div>
+    </div>
+@endforeach
+</div>
+
+<div class="mt-4 d-flex justify-content-center">
+ {{$categorias->links()}}
+</div> 
+
 @stop

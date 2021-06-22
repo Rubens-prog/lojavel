@@ -19,10 +19,10 @@ class CreateProdutosTable extends Migration
             $table->decimal('preco', 8,2)->default(0.00);
             $table->text('descricao');
             $table->boolean('usado')->default(0);
-            $table->unsignedBigInteger('categoria_id');
+            $table->unsignedBigInteger('categoria_id')->nullable();
 
-            $table->foreign('categoria_id')->references('id')->on('categorias');
-
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('set null');
+            
             $table->timestamps();
         });
     }

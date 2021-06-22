@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     use HasFactory;
-   protected $fillable=["nome"];
+   protected $fillable=["nome","img"];
 
    public function produtos(){
     return $this->hasMany(Produto::class);

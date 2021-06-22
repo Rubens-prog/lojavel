@@ -2,7 +2,7 @@
 
 @section('main')
 
-<h1>Nova Categoria</h1>
+<h1>Editar Categoria</h1>
 
 
 
@@ -10,14 +10,19 @@
     @csrf
     
     <div class="col-md-6">
-        
         <div class="form-group">
             <label class="ls-label">
             <span class="ls-label-text">Nome</span>
                 <input class="form-control" autocomplete="off" type="text" name="nome" required value="{{$categoria->nome}}">  
             </label>
         </div>
-         <button type="submit" class="btn btn-danger"> Cadastrar</button>
+        <div class="form-group">
+            <label class="ls-label">
+            <span class="ls-label-text">Imagem</span>
+                <input class="form-control" autocomplete="off" type="text" name="img" required value="{{$categoria->img}}">  
+            </label>
+        </div>
+         <button type="submit" class="btn btn-danger"> Editar</button>
     </div>
 
     
