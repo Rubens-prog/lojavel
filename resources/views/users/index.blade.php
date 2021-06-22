@@ -13,10 +13,10 @@
 @endif
 
 
-<a href="/usuarios/form" class="btn btn-primary">Novo usuário</a>
+<a href="/usuarios/form" class="btn btn-primary"><i class="fas fa-plus mr-1"></i>Novo usuário</a>
 
 
-<table class="table mt-5">
+<table class="table mt-5 table-striped">
     <thead class="thead-dark">
         <tr>
             <th>Nome</th>
@@ -36,13 +36,14 @@
                 <td>{{$user->phone}}</td>
                 <td>{{$user->cpf}}</td>
                 <td>
-                <a href="/usuarios/edit?id={{$user->id}}" class="btn btn-secondary">edit</a>
-                <a href="/usuarios/delete?id={{$user->id}}" onclick="return confirm('Você tem certeza?')" class="btn btn-danger">delete</a>
+                <a href="/usuarios/edit?id={{$user->id}}" class="btn btn-secondary"><i class="fas fa-pen ml-2 mr-2"></i></a>
+                <a href="/usuarios/delete?id={{$user->id}}" onclick="return confirm('Você tem certeza?')" class="btn btn-danger"><i class="far fa-trash-alt ml-2 mr-2"></i></a>
                 </td>
             </tr>
         @endforeach   
    </tbody>
 </table>
+
 
 <hr>
 <div class="mt-4 d-flex justify-content-center">

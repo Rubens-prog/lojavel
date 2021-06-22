@@ -13,9 +13,9 @@ class ControllerUsers extends Controller
 public function users(Request $request){
     $users=User::paginate(5);
 
-    $nome=$request->input('name');
-    $email=$request->input('email');
-    $phone=$request->input('phone');
+    //$nome=$request->input('name');
+    //$email=$request->input('email');
+    //$phone=$request->input('phone');
    
 
     return view('users.index')->with("users",$users);

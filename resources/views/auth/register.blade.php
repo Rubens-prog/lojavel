@@ -1,14 +1,22 @@
+@extends('template')
+@section('main')
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <h1>Registrar</h1>
             </a>
         </x-slot>
-
+        <style>
+            h1{
+                font-size:80px;
+                color:red;
+            }
+        </style>
+       
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
@@ -47,13 +55,14 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Já é registrado?') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Registrar') }}
                 </x-button>
             </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
+@stop

@@ -1,3 +1,6 @@
+@extends('template')
+@section('main')
+
 <x-guest-layout>
     <x-auth-card>
     <style>
@@ -7,7 +10,7 @@
         color:red;
 
     }
-
+    
 </style>
         <x-slot name="logo">
             <a href="/">
@@ -63,3 +66,5 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+@stop

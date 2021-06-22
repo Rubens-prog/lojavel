@@ -59,7 +59,7 @@ Route::post('/usuarios/update',[ControllerUsers::class,'updateUsers']);
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+   return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 
